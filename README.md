@@ -6,7 +6,7 @@ Your team has been tasked with creating pinterest.  If you live under a rock and
 * Clean code - single responsibility principle
 * ES6 Modules bundled with webpack
 * No errors - linters should be clean
-* CSS and Bootstrap for styling
+* SASS and Bootstrap for styling
 * Completely planned out - before each section you should be making new cards before you code.  You should have wireframes and an ERD
 
 ## HW Parts
