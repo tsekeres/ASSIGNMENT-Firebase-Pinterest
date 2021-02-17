@@ -6,10 +6,11 @@ const signMeIn = () => {
   firebase.auth().signInWithPopup(provider);
 };
 
+// GOOGLE LOGIN BUTTON
 const loginButton = () => {
   const domString = '<button id="google-auth" class="btn btn-danger">GOOGLE LOGIN</button>';
-  $('#login-form-container').html(domString);
-  $('#google-auth').click(signMeIn);
+  document.querySelector('#login-form-container').innerHTML = domString;
+  document.querySelector('#google-auth').addEventListener('click', signMeIn);
 };
 
 export default loginButton;
