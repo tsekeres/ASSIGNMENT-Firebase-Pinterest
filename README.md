@@ -15,9 +15,11 @@ Your team has been tasked with creating pinterest.  If you live under a rock and
 * Create an ERD for pinterest (do this in studygroup)
 * Clone this repo
 * Create a setup branch
-* Create a new firebase project and enable google authentication
-* Create an authentication branch and add in all authentication that we did in class (navbar with logout button, google login button)
-* When your user is logged out they should see the navbar with only a brand.  And an h1 on the page that says PINTEREST (make a `home` component for this)
+* Do all the stuff needed when setting up the project. Reference the webpack instructions if needed. These include making the updates to the `.env` file
+  * Create a new firebase project, database, and enable google authentication, etc.
+* Create an authentication branch and add a navbar with logout button, and place the google login button somewhere for you to test
+  * **Note: There are components that you can use to get started and style later. We just want you to get your auth setup by yourself.**
+* When your user is **logged out** they should see the navbar with only a brand.  And an h1 on the page that says PINTEREST (make a `home` component for this)
 * When your user is logged in they should see a navbar with a brand and a logout button and an H1 on the page that says Boards (make a `boards` component for this)
 
 ### Part 2: READ
@@ -48,6 +50,6 @@ Your team has been tasked with creating pinterest.  If you live under a rock and
 * As a user, I should be able to change which board a pin belongs to.
 
 ### Part 6: Deploy and Readme
-* As a user I should be able to use your app on the internet - it should be [deployed using firebase or Netlify](https://github.com/nss-nightclass-projects/Night-Class-Resources/blob/master/book-3-data-driven-applications/chapters/firebase-deploy.md).
+* As a user I should be able to use your app on the internet - it should be deployed using Netlify.
 
 * As a developer, I want to see an amazing README for this project.
