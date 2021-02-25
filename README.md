@@ -13,7 +13,7 @@ Your team has been tasked with creating pinterest.  If you live under a rock and
 
 ### Part 1: ERDs and Authentication
 * Create an ERD for pinterest (do this in studygroup)
-* Create a new githup repo called pinterest
+* Clone this repo
 * Create a setup branch
 * Create a new firebase project and enable google authentication
 * Create an authentication branch and add in all authentication that we did in class (navbar with logout button, google login button)
