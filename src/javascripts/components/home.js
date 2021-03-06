@@ -1,19 +1,13 @@
+import domBuilder from './events/domBuilder';
+
 const home = () => {
-  document.querySelector('#app').innerHTML = `
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
-      <a class="navbar-brand title" href="#">TSPint</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div id="logout-button"></div>
+  domBuilder();
+  document.querySelector('#navigation').innerHTML = `
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://pngimg.com/uploads/pinterest/pinterest_PNG45.png" alt="" width="30" height="24">
+        </a>
       </div>
     </nav>    
     <h1>PINTERESTING</h1>
