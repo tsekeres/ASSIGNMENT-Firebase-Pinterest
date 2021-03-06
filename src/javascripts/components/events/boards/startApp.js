@@ -1,9 +1,9 @@
 import navBar from '../../navBar';
-import domBuilder from '../../home';
+import domBuilder from '../domBuilder';
 
-const startApp = () => {
-  domBuilder();
-  navBar();
+const startApp = (user) => {
+  domBuilder(user);
+  navBar(user);
 };
 
 export default startApp;
