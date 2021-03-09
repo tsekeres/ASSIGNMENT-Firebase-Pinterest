@@ -10,7 +10,7 @@ const showPins = (array) => {
         <div class="card-body" style="height: 180px;">
           <h5 class="card-title">${item.title}</h5>
           <hr>
-          <button class="btn btn-danger btn-sm" id="delete-pin--${item.firebaseKey}">Delete Pin</button>
+          <button class="btn btn-danger btn-sm" id="delete-pin--${item.firebaseKey}--${item.board_id}">Delete Pin</button>
         </div>
       </div>`;
   });
