@@ -1,5 +1,5 @@
 const showBoards = (array) => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">+</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-board-btn">+</button>';
   document.querySelector('#cards').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 
