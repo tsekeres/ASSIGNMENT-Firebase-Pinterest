@@ -1,14 +1,22 @@
 import { showPins } from '../pins';
-import getBoardPins from '../helpers/data/pinData';
+import getBoardPins from '../../helpers/data/pinData';
+import { showBoards } from '../boards';
+import { getBoards } from '../../helpers/data/boardData';
 
-const domEvents = () => {
+const domEvents = (userId) => {
   document.querySelector('body').addEventListener('click', (e) => {
     // SHOW BOARDS FROM HOME BUTTON
+    if (e.target.id.includes('boards-btn')) {
+      e.preventDefault();
+      document.querySelector('#form-container').innerHTML = '';
+      document.querySelector('#cards').innerHTML = '';
+      getBoards(userId).then((boardsArray) => showBoards(boardsArray));
+    }
     // SHOW PINS FROM BOARD ID
     if (e.target.id.includes('show-pins-btn')) {
       e.preventDefault();
-      const boardId = e.target.id.split('--')[1];
-      getBoardPins(boardId).then((pinsArray) => showPins(pinsArray));
+      const firebaseKey = e.target.id.split('--')[1];
+      getBoardPins(firebaseKey).then((pinsArray) => showPins(pinsArray));
     }
 
     // DELETE BOARD AND PINS

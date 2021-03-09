@@ -9,8 +9,8 @@ const showBoards = (array) => {
         <div class="card-body" style="height: 180px;">
         <h5 class="card-title">${item.title}</h5>
         <hr>
-        <button class="btn btn-info" data-toggle="modal" data-target="#formModal" id="show-pins-btn--${item.firebaseKey}">View Pins</button>
-        <button class="btn btn-danger" id="delete-board--${item.firebaseKey}">Delete Baord</button>
+        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#formModal" id="show-pins-btn--${item.firebaseKey}">View Pins</button>
+        <button class="btn btn-danger btn-sm" id="delete-board--${item.firebaseKey}">Delete Baord</button>
       </div>`;
   });
 };

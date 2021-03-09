@@ -3,7 +3,7 @@ const domBuilder = () => {
   <div id="main-container">
     <div id="add-button"></div>
     <div id="form-container"></div>
-    <div id="cards"></div>
+    <div class="d-flex flex-wrap justify-content-around" id="cards"></div>
   </div>`;
 };
 

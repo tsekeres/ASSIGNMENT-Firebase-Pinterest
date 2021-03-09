@@ -8,6 +8,10 @@ body {
   margin-top: 100px;
 }
 
+#navigation {
+  
+}
+
 #main-container {
   display: flex;
   flex-direction: column;
@@ -36,7 +40,7 @@ body {
     justify-content: center;
 
     .card {
-      width: 200px;
+      width: 250px;
       margin: 5px;
     }
   }
