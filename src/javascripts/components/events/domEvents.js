@@ -1,18 +1,20 @@
 import { showPins } from '../pins';
 import { getBoardPins, deletePin } from '../../helpers/data/pinData';
 import { showBoards } from '../boards';
-import { getBoards } from '../../helpers/data/boardData';
+import { createBoard, getBoards } from '../../helpers/data/boardData';
 import deleteBoardPins from '../../helpers/data/boardPinsData';
+import addBoardForm from '../forms/addBoardForm';
 
-const domEvents = (userId) => {
+const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
     // SHOW BOARDS FROM HOME BUTTON
     if (e.target.id.includes('boards-btn')) {
       e.preventDefault();
       document.querySelector('#form-container').innerHTML = '';
       document.querySelector('#cards').innerHTML = '';
-      getBoards(userId).then((boardsArray) => showBoards(boardsArray));
+      getBoards(uid).then((boardsArray) => showBoards(boardsArray));
     }
+
     // SHOW PINS FROM BOARD ID
     if (e.target.id.includes('show-pins-btn')) {
       e.preventDefault();
@@ -20,12 +22,28 @@ const domEvents = (userId) => {
       getBoardPins(firebaseKey).then((pinsArray) => showPins(pinsArray));
     }
 
+    // SHOWING FORM FOR ADDING A BOARD
+    if (e.target.id.includes('add-board-btn')) {
+      addBoardForm();
+    }
+
+    // SUBMITTING FORM FOR ADDING A BOARD
+    if (e.target.id.includes('submit-board')) {
+      e.preventDefault();
+      const boardObject = {
+        image: document.querySelector('#image').value,
+        title: document.querySelector('#title').value,
+        uid,
+      };
+      createBoard(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
+    }
+
     // DELETE BOARD AND PINS
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete board and all board pins?')) {
         const boardId = e.target.id.split('--')[1];
-        deleteBoardPins(boardId, userId).then((boardsArray) => showBoards(boardsArray));
+        deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }
 
