@@ -1,9 +1,10 @@
 import { showPins } from '../pins';
-import { getBoardPins, deletePin } from '../../helpers/data/pinData';
+import { getBoardPins, deletePin, createPin } from '../../helpers/data/pinData';
 import { showBoards } from '../boards';
 import { createBoard, getBoards } from '../../helpers/data/boardData';
 import deleteBoardPins from '../../helpers/data/boardPinsData';
 import addBoardForm from '../forms/addBoardForm';
+import addPinForm from '../forms/addPinForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -36,6 +37,23 @@ const domEvents = (uid) => {
         uid,
       };
       createBoard(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
+    }
+
+    // SHOWING FORM FOR ADDING A PIN
+    if (e.target.id.includes('add-pin-btn')) {
+      addPinForm();
+    }
+
+    // SUBMITTING FORM FOR ADDING A PIN
+    if (e.target.id.includes('submit-pin')) {
+      e.preventDefault();
+      const pinObject = {
+        board_id: document.querySelector('#board').value,
+        image: document.querySelector('#image').value,
+        title: document.querySelector('#title').value,
+        uid,
+      };
+      createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
     // DELETE BOARD AND PINS
