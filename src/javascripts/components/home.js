@@ -12,7 +12,7 @@ const home = () => {
     </nav>    
     <h1>PINTERESTING</h1>
     <div id="main-container">
-      <div id='login-form-container'></div>
+      <div id="login-form-container"></div>
     </div>`;
 };
 
