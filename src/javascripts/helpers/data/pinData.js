@@ -1,4 +1,3 @@
-import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
@@ -40,8 +39,10 @@ const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
 
 // UPDATE PIN
 const updatePin = (firebaseKey, pinObject) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/pins/${firebaseKey}.json`, pinObject)
-    .then(() => getBoardPins(firebase.auth().currentUser.uid)).then((pinsArray) => resolve(pinsArray))
+  axios
+    .patch(`${dbUrl}/pins/${firebaseKey}.json`, pinObject)
+    .then(() => getBoardPins(pinObject.board_id))
+    .then((pinsArray) => resolve(pinsArray))
     .catch((error) => reject(error));
 });
 

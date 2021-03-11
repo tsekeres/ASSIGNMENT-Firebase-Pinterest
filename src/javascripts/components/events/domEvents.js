@@ -15,7 +15,7 @@ const domEvents = (uid) => {
     // SHOW PINS FROM BOARD ID
     if (e.target.id.includes('show-pins-btn')) {
       e.preventDefault();
-      const firebaseKey = e.target.id.split('--')[1];
+      const firebaseKey = e.target.id.split('^^')[1];
       getBoardPins(firebaseKey).then((pinsArray) => showPins(pinsArray));
     }
 
@@ -54,14 +54,15 @@ const domEvents = (uid) => {
 
     // SHOWING FORM FOR EDITING A PIN
     if (e.target.id.includes('edit-pin-btn')) {
-      const firebaseKey = e.target.id.split('--')[1];
+      const firebaseKey = e.target.id.split('^^')[1];
       formModal('Edit Pin');
       getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
+      deletePin(firebaseKey);
     }
 
     // SUBMITTING TO EDIT A PIN
-    if (e.target.id.includes('edit-pin-btn')) {
-      const firebaseKey = e.target.id.split('--')[1];
+    if (e.target.id.includes('edit-pin')) {
+      const firebaseKey = e.target.id.split('^^')[1];
       e.preventDefault();
       const pinObject = {
         board_id: document.querySelector('#board').value,
@@ -78,7 +79,7 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete board and all board pins?')) {
-        const boardId = e.target.id.split('--')[1];
+        const boardId = e.target.id.split('^^')[1];
         deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }
@@ -87,8 +88,8 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        const firebaseKey = e.target.id.split('--')[1];
-        const boardId = e.target.id.split('--')[2];
+        const firebaseKey = e.target.id.split('^^')[1];
+        const boardId = e.target.id.split('^^')[2];
         deletePin(firebaseKey, boardId).then((pinsArray) => showPins(pinsArray));
       }
     }

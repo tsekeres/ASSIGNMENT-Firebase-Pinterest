@@ -13,7 +13,7 @@ const editPinForm = (pinObject) => {
       </div>
       <div class="form-group" id="select-board">
       </div>
-      <button type="submit" id="edit-pin--${pinObject.firebaseKey}" class="btn btn-primary">Submit Pin</button>
+      <button type="submit" id="edit-pin--${pinObject.firebaseKey}" class="btn btn-primary">Edit Pin</button>
     </form>`;
 
   selectBoard(pinObject);
