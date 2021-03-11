@@ -1,21 +1,17 @@
 import { showPins } from '../pins';
-import { getBoardPins, deletePin, createPin } from '../../helpers/data/pinData';
+import {
+  getBoardPins, deletePin, createPin, getSinglePin, updatePin
+} from '../../helpers/data/pinData';
 import { showBoards } from '../boards';
-import { createBoard, getBoards } from '../../helpers/data/boardData';
+import { createBoard } from '../../helpers/data/boardData';
 import deleteBoardPins from '../../helpers/data/boardPinsData';
 import addBoardForm from '../forms/addBoardForm';
 import addPinForm from '../forms/addPinForm';
+import editPinForm from '../forms/editPinForm';
+import formModal from '../forms/formModal';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
-    // SHOW BOARDS FROM HOME BUTTON
-    if (e.target.id.includes('boards-btn')) {
-      e.preventDefault();
-      document.querySelector('#form-container').innerHTML = '';
-      document.querySelector('#cards').innerHTML = '';
-      getBoards(uid).then((boardsArray) => showBoards(boardsArray));
-    }
-
     // SHOW PINS FROM BOARD ID
     if (e.target.id.includes('show-pins-btn')) {
       e.preventDefault();
@@ -56,6 +52,28 @@ const domEvents = (uid) => {
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
+    // SHOWING FORM FOR EDITING A PIN
+    if (e.target.id.includes('edit-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      formModal('Edit Pin');
+      getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
+    }
+
+    // SUBMITTING TO EDIT A PIN
+    if (e.target.id.includes('edit-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      e.preventDefault();
+      const pinObject = {
+        board_id: document.querySelector('#board').value,
+        image: document.querySelector('#image').value,
+        title: document.querySelector('#title').value,
+      };
+
+      updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
+
+      $('#formModal').modal('toggle');
+    }
+
     // DELETE BOARD AND PINS
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
@@ -74,13 +92,6 @@ const domEvents = (uid) => {
         deletePin(firebaseKey, boardId).then((pinsArray) => showPins(pinsArray));
       }
     }
-    // SHOW FORM TO ADD BOARD
-
-    // SUBMIT ACTION FOR NEW BOARD
-
-    // SHOW FORM TO ADD PIN
-
-    // SUBMIT ACTION FOR NEW BOARD
   });
 };
 

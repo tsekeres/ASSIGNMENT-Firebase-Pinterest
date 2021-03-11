@@ -33,8 +33,8 @@ const createBoard = (boardsObject, uid) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/boards/${boardId}.json`)
+const getSingleBoard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/boards/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
