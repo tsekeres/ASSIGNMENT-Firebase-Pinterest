@@ -13,9 +13,10 @@ import formModal from '../forms/formModal';
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
     // SHOW PINS FROM BOARD ID
-    if (e.target.id.includes('show-pins-btn')) {
+    if (e.target.id.includes('specific-board')) {
       e.preventDefault();
       const firebaseKey = e.target.id.split('^^')[1];
+      console.warn(firebaseKey);
       getBoardPins(firebaseKey).then((pinsArray) => {
         if (pinsArray.length) {
           showPins(pinsArray);

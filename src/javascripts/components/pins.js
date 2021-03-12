@@ -7,10 +7,9 @@ const showPins = (array) => {
 
   array.forEach((item) => {
     document.querySelector('#cards').innerHTML += `<div class="card">
-        <img class="card-img-top" src=${item.image} alt=${item.title} style="height: 200px;">
-        <div class="card-body" style="height: 180px;">
-          <h5 class="card-title">${item.title}</h5>
-          <hr>
+        <img class="card-img-top" src=${item.image} alt=${item.title} style="height: 120px;">
+        <div class="card-body" style="height: 100px;">
+          <h6 class="card-title">${item.title}</h6>
           <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#formModal" id="edit-pin-btn^^${item.firebaseKey}">Edit Pin</button>
           <button class="btn btn-danger btn-sm" id="delete-pin^^${item.firebaseKey}^^${item.board_id}">Delete Pin</button>
         </div>
