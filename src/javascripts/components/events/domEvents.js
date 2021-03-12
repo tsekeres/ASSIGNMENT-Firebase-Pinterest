@@ -1,4 +1,4 @@
-import { showPins } from '../pins';
+import { emptyPins, showPins } from '../pins';
 import {
   getBoardPins, deletePin, createPin, getSinglePin, updatePin
 } from '../../helpers/data/pinData';
@@ -16,7 +16,13 @@ const domEvents = (uid) => {
     if (e.target.id.includes('show-pins-btn')) {
       e.preventDefault();
       const firebaseKey = e.target.id.split('^^')[1];
-      getBoardPins(firebaseKey).then((pinsArray) => showPins(pinsArray));
+      getBoardPins(firebaseKey).then((pinsArray) => {
+        if (pinsArray.length) {
+          showPins(pinsArray);
+        } else {
+          emptyPins();
+        }
+      });
     }
 
     // SHOWING FORM FOR ADDING A BOARD
@@ -79,7 +85,8 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete board and all board pins?')) {
-        const boardId = e.target.id.split('^^')[1];
+        const boardId = e.target.id.split('--')[1];
+        console.warn(boardId);
         deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }

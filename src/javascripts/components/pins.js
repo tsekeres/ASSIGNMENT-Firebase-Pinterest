@@ -21,7 +21,7 @@ const showPins = (array) => {
 const emptyPins = () => {
   document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-pin-btn">Add A Pin</button>';
   document.querySelector('#form-container').innerHTML = '';
-  document.querySelector('#store').innerHTML = '<h1 class="text-dark">No Pins</h1>';
+  document.querySelector('#cards').innerHTML = '<h1 class="text-dark">No Pins</h1>';
 };
 
 export { showPins, emptyPins };

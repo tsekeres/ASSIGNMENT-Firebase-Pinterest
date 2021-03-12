@@ -1,5 +1,5 @@
 import { getBoards } from '../../helpers/data/boardData';
-import { showBoards } from '../boards';
+import { emptyBoards, showBoards } from '../boards';
 
 const navEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -8,7 +8,14 @@ const navEvents = (uid) => {
       e.preventDefault();
       document.querySelector('#form-container').innerHTML = '';
       document.querySelector('#cards').innerHTML = '';
-      getBoards(uid).then((boardsArray) => showBoards(boardsArray));
+
+      getBoards(uid).then((boardsArray) => {
+        if (boardsArray.length) {
+          showBoards(boardsArray);
+        } else {
+          emptyBoards();
+        }
+      });
     }
   });
 };
