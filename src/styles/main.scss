@@ -5,18 +5,18 @@ body {
   background-color: white;
   color: black;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
-#navigation {
-  
+#user-image {
+  border-radius: 50%;
 }
 
 #main-container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 10px;
   align-content: center;
 
   #add-button {
@@ -44,7 +44,7 @@ body {
     justify-content: center;
 
     .card {
-      width: 150px;
+      width: 200px;
       margin: 5px;
     }
   }

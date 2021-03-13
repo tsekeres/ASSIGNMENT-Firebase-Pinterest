@@ -4,6 +4,7 @@ const showPins = (array) => {
 
   document.querySelector('#cards').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
+  document.querySelector('#title-container').innerHTML = '';
 
   array.forEach((item) => {
     document.querySelector('#cards').innerHTML += `<div class="card">
@@ -20,6 +21,7 @@ const showPins = (array) => {
 const emptyPins = () => {
   document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-pin-btn">Add A Pin</button>';
   document.querySelector('#form-container').innerHTML = '';
+  document.querySelector('#title-container').innerHTML = '';
   document.querySelector('#cards').innerHTML = '<h1 class="text-dark">No Pins</h1>';
 };
 

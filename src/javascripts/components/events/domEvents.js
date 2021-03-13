@@ -1,14 +1,15 @@
 import { emptyPins, showPins } from '../pins';
 import {
-  getBoardPins, deletePin, createPin, getSinglePin, updatePin
+  deletePin, createPin, getSinglePin, updatePin
 } from '../../helpers/data/pinData';
 import { showBoards } from '../boards';
 import { createBoard } from '../../helpers/data/boardData';
-import deleteBoardPins from '../../helpers/data/boardPinsData';
+import { deleteBoardPins, boardPinInfo } from '../../helpers/data/boardPinsData';
 import addBoardForm from '../forms/addBoardForm';
 import addPinForm from '../forms/addPinForm';
 import editPinForm from '../forms/editPinForm';
 import formModal from '../forms/formModal';
+import boardInfo from '../boardInfo';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -16,12 +17,13 @@ const domEvents = (uid) => {
     if (e.target.id.includes('specific-board')) {
       e.preventDefault();
       const firebaseKey = e.target.id.split('^^')[1];
-      console.warn(firebaseKey);
-      getBoardPins(firebaseKey).then((pinsArray) => {
-        if (pinsArray.length) {
-          showPins(pinsArray);
+      boardPinInfo(firebaseKey).then((boardInfoObject) => {
+        if (boardInfoObject.pins.length) {
+          showPins(boardInfoObject.pins);
+          boardInfo(boardInfoObject.board);
         } else {
           emptyPins();
+          boardInfo(boardInfoObject.board);
         }
       });
     }

@@ -1,5 +1,5 @@
 const boardInfo = (boardObject) => {
-  document.querySelector('#add-button').innerHTML += `<h1 class="text-white">${boardObject.title}</h1>`;
+  document.querySelector('#title-container').innerHTML += `<h1 class="text-black">${boardObject.title}</h1>`;
 };
 
 export default boardInfo;
