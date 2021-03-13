@@ -89,7 +89,6 @@ const domEvents = (uid) => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete board and all board pins?')) {
         const boardId = e.target.id.split('--')[1];
-        console.warn(boardId);
         deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }
