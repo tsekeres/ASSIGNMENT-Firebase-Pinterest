@@ -1,14 +1,16 @@
 Name of the Project:
 Pinteresting
 
-Overview of the project
+Overview of the project:
+This is a mock pinterest site that mimics the popular site/page/link collecting site. It allows saving of prototype boards and pins and has delete and edit functionality.
 
-Link to your wireframes/prototype
+Link to your wireframes/prototype:
 
 Link to the deployed project:
 https://ts-pinteresting.netlify.app
 
-Link to your project board (yes...even though it is a part of the repo)
+Link to project board:
+https://github.com/tsekeres/ASSIGNMENT-Firebase-Pinterest/projects/1
 
 Description of the user:
 The user for this site is someone wanting to organize and access their interests fro the web. They might want to just collect info in an easy to view site. Or they may be building a list of projects or goals to keep tabs on.
@@ -23,7 +25,7 @@ delete and edit capability for individual pins
 reassigning pins to different boards
 adding new pins and boards
 
-Screenshots of your project:
+Screenshots of project:
 https://github.com/tsekeres/ASSIGNMENT-Firebase-Pinterest/blob/main/documentation/Screenshot%20(16).png
 
 List of contributors and links to their GH profiles:
